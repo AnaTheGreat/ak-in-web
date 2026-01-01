@@ -1,0 +1,30 @@
+# Backend
+backend/.env
+backend/.DS_Store
+backend/*.db
+backend/*.sqlite3
+backend/go.sum
+backend/*.exe
+
+# Frontend  
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+frontend/.DS_Store
+
+# Database
+*.dump
+*.backup
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+
+# Environment variables
+.env
+.env.local
