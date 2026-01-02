@@ -3,7 +3,7 @@ import React, { useState, useEffect, StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 
 // ============== CONFIGURATION ==============
-const API_BASE = 'http://localhost:8080/api';
+const API_BASE = 'https://ak-in-web-backend-production.up.railway.app/api';
 
 // ============== TAILWIND/CSS ==============
 const styles = `
