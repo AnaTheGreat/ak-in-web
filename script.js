@@ -1,25 +1,20 @@
 const BOOK_TAGS = [
     "programming",
-    "design",
-    "psychology",
+    "read in english",
+    "book club",
+    "project every house book",
+    "mathematics",
     "philosophy",
-    "science",
-    "fiction",
-    "non-fiction",
-    "biography",
-    "history",
-    "productivity",
-    "business",
-    "algorithms",
-    "architecture",
-    "management",
-    "reference"
+    "podcast",
+    "random",
+    "want to read",
+    "reading",
+    "read"
 ];
 
 const MOVIE_TAGS = [
-    "sci-fi",
-    "cyberpunk",
-    "thriller",
+    "🇹🇷",
+    "🇰🇷",
     "drama",
     "horror",
     "psychological",
