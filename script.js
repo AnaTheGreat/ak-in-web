@@ -1,34 +1,25 @@
 const BOOK_TAGS = [
-    "programming",
+    "want to read",
+    "reading",
+    "read",
+    "mathematics",
+    "philosophy",
     "read in english",
     "book club",
     "project every house book",
-    "mathematics",
-    "philosophy",
+
     "podcast",
     "random",
-    "want to read",
-    "reading",
-    "read"
 ];
 
-const MOVIE_TAGS = [
-    "🇹🇷",
-    "🇰🇷",
-    "drama",
-    "horror",
-    "psychological",
-    "mystery",
-    "action",
-    "adventure",
-    "fantasy",
-    "comedy",
+const MOVIE_TAGS = 
+    "watched",
+    "to watch",
     "documentary",
-    "animated",
-    "cerebral",
-    "visual-storytelling",
-    "narrative",
-    "artistic"
+    "anime",
+    "series",
+    "🇹🇷",
+    "🇰🇷"
 ];
 
 const BOOKS = [
@@ -63,8 +54,7 @@ const MOVIES = [
         year: 2010,
         rating: 8.5,
         tags: validateTags(["sci-fi", "cerebral", "artistic"], MOVIE_TAGS),
-        poster: "shutterisland.webp",
-        notes: "Mind-bending psychological thriller set in an asylum."
+        poster: "shutterisland.webp"
     },
     {
         id: 2,
@@ -73,8 +63,7 @@ const MOVIES = [
         rating: 10.0,
         year: 1979,
         tags: validateTags(["sci-fi", "cerebral", "artistic"], MOVIE_TAGS),
-        poster: "stalker.webp",
-        notes: "Contemplative journey into desire and meaning."
+        poster: "stalker.webp"
     }
 ];
 
