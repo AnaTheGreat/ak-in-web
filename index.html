@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AK In Web</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=VT323&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="#" class="nav-link active" data-page="about">[ HOME ]</a>
+            <a href="#" class="nav-link" data-page="library">[ LIBRARY ]</a>
+            <a href="#" class="nav-link" data-page="cinema">[ CINEMA ]</a>
+            <a href="#" class="nav-link" data-page="wisdom">[ WISDOM ]</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="page active" id="about">
+            <div class="ascii-node about">
+                <div class="node-label">[ AK_START ]</div>
+                <div class="about-content">
+                    <div class="ascii-logo">
+█████████████████████
+ █░░░░░ AK IN ░░░░░█
+ █░░░░░░ WEB ░░░░░░█
+█████████████████████
+                    </div>
+                    <p style="margin: 2rem 0; font-size: 0.95rem;">Welcome To AK's Virtual Home.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="page" id="library">
+            <div class="ascii-node library">
+                <div class="node-label">[ LIBRARY_INTERFACE ]</div>
+                
+                <div class="filter-bar">
+                    <div id="filter-badges-library"></div>
+                    <button class="clear-btn" id="clear-library" style="display: none;">[ CLEAR_FILTERS ]</button>
+                </div>
+
+                <div class="counter" id="counter-library"></div>
+                
+                <div id="library-cards"></div>
+            </div>
+        </div>
+
+        <div class="page" id="cinema">
+            <div class="ascii-node cinema">
+                <div class="node-label">[ CINEMA_INTERFACE ]</div>
+                
+                <div class="filter-bar">
+                    <div id="filter-badges-cinema"></div>
+                    <button class="clear-btn" id="clear-cinema" style="display: none;">[ CLEAR_FILTERS ]</button>
+                </div>
+
+                <div class="counter" id="counter-cinema"></div>
+                
+                <div id="cinema-cards"></div>
+            </div>
+        </div>
+
+        <div class="page" id="wisdom">
+            <div class="ascii-node wisdom">
+                <div class="node-label">[ WISDOM_INTERFACE ]</div>
+                <div id="wisdom-timeline"></div>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
