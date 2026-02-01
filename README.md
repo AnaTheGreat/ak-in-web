@@ -10,7 +10,7 @@ ak-in-web/
 ├── .env.example +
 ├── docker-compose.yml
 │
-├── frontend/
+├── frontend/ +
 │   ├── Dockerfile
 │   ├── nginx.conf
 │   ├── package.json
@@ -59,19 +59,20 @@ ak-in-web/
 │       ├── App.tsx
 │       └── main.tsx
 │
-├── backend/
-│   ├── Dockerfile
-│   ├── go.mod
+├── backend/ +
+│   ├── Dockerfile +
+│   ├── go.mod +
 │   ├── go.sum
 │   │
-│   ├── cmd/
-│   │   └── api/
-│   │       └── main.go
+│   ├── cmd/ +
+│   │   └── api/ +
+│   │       └── main.go +
 │   │
-│   ├── internal/
-│   │   ├── config/
-│   │   ├── telemetry/
-│   │   │   ├── setup.go
+│   ├── internal/ +
+│   │   ├── config/ +
+│   │   │   ├── config.go +
+│   │   ├── telemetry/ +
+│   │   │   ├── setup.go +
 │   │   │   └── middleware/
 │   │   │
 │   │   ├── auth/
@@ -87,7 +88,7 @@ ak-in-web/
 │   │   │   ├── service.go
 │   │   │   └── repository.go
 │   │   │
-│   │   └── router.go
+│   │   └── router.go +
 │   │
 │   ├── migrations/
 │   │   ├── 001_init.sql
@@ -116,8 +117,8 @@ ak-in-web/
 │       ├── infrastructure.yml
 │       └── deploy.yml
 │
-└── docs/
-    ├── ARCHITECTURE.md
+└── docs/ +
+    ├── ARCHITECTURE.md ~+
     ├── DEVELOPMENT.md
     └── DEPLOYMENT.md
 //#############################################################################################//
@@ -130,7 +131,7 @@ ak-in-web/
 
 //#############################################################################################//
 
-Phase 1 — Backend API Skeleton
+Phase 1 — Backend API Skeleton +
 
 Created first, because frontend depends on it
 
