@@ -6,6 +6,7 @@ import (
 
 	"ak-in-web/internal"
 	"ak-in-web/internal/config"
+	"ak-in-web/internal/db"
 	"ak-in-web/internal/telemetry"
 )
 
@@ -15,10 +16,17 @@ func main() {
 	shutdownTelemetry := telemetry.Init(cfg.AppName, cfg.Env)
 	defer shutdownTelemetry()
 
-	addr := ":" + cfg.Port
-	log.Printf("starting server on %s", addr)
+	database := db.New(
+		cfg.DBHost,
+		cfg.DBPort,
+		cfg.DBName,
+		cfg.DBUser,
+		cfg.DBPassword,
+	)
 
-	if err := http.ListenAndServe(addr, internal.Router()); err != nil {
-		log.Fatal(err)
-	}
+	router := internal.Router(database)
+
+	log.Printf("starting server on :%s", cfg.Port)
+	log.Fatal(http.ListenAndServe(":"+cfg.Port, router))
+
 }

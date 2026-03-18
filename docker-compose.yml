@@ -1,0 +1,26 @@
+version: "3.9"
+
+services:
+  db:
+    image: postgres:16
+    container_name: akdb
+    environment:
+      POSTGRES_DB: akdb
+      POSTGRES_USER: akuser
+      POSTGRES_PASSWORD: akpass  # must match .env DB_PASSWORD
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  backend:
+    build: ./backend
+    ports:
+      - "8080:8080"
+    env_file:
+      - .env
+    depends_on:
+      - db
+
+volumes:
+  pgdata:
