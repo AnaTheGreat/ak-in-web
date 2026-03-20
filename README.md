@@ -30,6 +30,7 @@ Each section is independent and will allow:
 
 ## 🏗️ Architecture
 
+Go to [ARCHITECTURE.MD] for details.
 The backend follows a layered structure:
 
 Handler (HTTP layer)  
