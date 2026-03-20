@@ -21,7 +21,16 @@ func Router(db *sql.DB) http.Handler {
 	libSvc := library.NewService(libRepo)
 	libHandler := library.NewHandler(libSvc)
 
-	mux.HandleFunc("/api/library/books", libHandler.ListBooks)
+	mux.HandleFunc("/api/library/books", func(w http.ResponseWriter, r *http.Request) {
+		switch r.Method {
+		case http.MethodGet:
+			libHandler.ListBooks(w, r)
+		case http.MethodPost:
+			libHandler.CreateBook(w, r)
+		default:
+			http.Error(w, "method not allowed", http.StatusMethodNotAllowed)
+		}
+	})
 
 	// Cinematheque
 	cinRepo := cinematheque.NewRepository(db)

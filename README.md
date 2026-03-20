@@ -1,8 +1,14 @@
-# AK Portfolio Backend (Work in Progress)
+# AK In Web (Work in Progress)
 
-This project is a backend service for a personal portfolio website.
+This project is a full-stack, personal portfolio, website built by using the following skills & tools:
 
-It is currently under active development. The goal is not just to make it work, but to build a system with proper backend structure, database design, and DevOps practices.
+- Go (backend)
+- React (frontend)
+- PostgreSQL (database)
+- Docker (containerization)
+- REST API architecture
+
+It is currently under active development. The goal is not just to make it work, but to build a system with proper and clean backend structure, database design and DevOps practices rather than rushing features. Personal goal is preparation for DevOps/Backend roles.
 
 ---
 
@@ -19,15 +25,6 @@ Each section is independent and will allow:
 - Tagging entries
 - Filtering by tags
 - Managing content through an admin interface
-
----
-
-## ⚙️ Tech Stack
-
-- Go (backend)
-- PostgreSQL (database)
-- Docker (containerization)
-- REST API architecture
 
 ---
 
@@ -73,6 +70,7 @@ This keeps the system modular and scalable.
 
 The following features are currently being implemented:
 
+- Migrations
 - Tag system (many-to-many relationships)
 - Filtering by tags
 - Admin authentication
@@ -139,9 +137,3 @@ This project is also a learning environment for:
 - Docker workflows
 - API structuring
 - Preparing for DevOps/backend roles
-
----
-
-## 📌 Notes
-
-This is not a finished product. The focus is on building a clean and extensible backend rather than rushing features.
