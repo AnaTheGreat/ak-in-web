@@ -22,7 +22,6 @@ backend/internal/
 This keeps the system modular and scalable.
 
 ---
-
 ## Database structure:
 
 Library:
