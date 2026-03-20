@@ -125,15 +125,3 @@ curl -X POST http://localhost:8080/library/books \
     "year": 2024,
     "rating": 8.5
   }'
-
----
-
-## 🎯 Learning Focus
-
-This project is also a learning environment for:
-
-- Backend architecture design
-- SQL schema design
-- Docker workflows
-- API structuring
-- Preparing for DevOps/backend roles
