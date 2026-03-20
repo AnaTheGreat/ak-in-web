@@ -12,7 +12,7 @@ It is currently under active development. The goal is not just to make it work, 
 
 ---
 
-## 🧠 Project Goal
+## Project Goal
 
 The application will support a personal website with two main data-driven sections:
 
@@ -28,35 +28,13 @@ Each section is independent and will allow:
 
 ---
 
-## 🏗️ Architecture
+## Architecture
 
 Go to [ARCHITECTURE.MD](./docs) for details.
-The backend follows a layered structure:
-
-Handler (HTTP layer)  
-↓  
-Service (business logic)  
-↓  
-Repository (database access)  
-
-Each domain is separated:
-
-backend/internal/
-  library/
-    handler.go
-    service.go
-    repository.go
-
-  cinematheque/
-    handler.go
-    service.go
-    repository.go
-
-This keeps the system modular and scalable.
 
 ---
 
-## 📦 Current Features
+## Current Features
 
 - Health check endpoint (`/health`)
 - List books (`GET /library/books`)
@@ -67,7 +45,7 @@ This keeps the system modular and scalable.
 
 ---
 
-## 🚧 Work in Progress
+## Work in Progress
 
 The following features are currently being implemented:
 
@@ -81,23 +59,7 @@ The following features are currently being implemented:
 
 ---
 
-## 🗄️ Database Design
-
-Planned structure:
-
-Library:
-- books
-- library_tags
-- book_tags (many-to-many)
-
-Cinematheque:
-- movies
-- cinematheque_tags
-- movie_tags (many-to-many)
-
----
-
-## ▶️ How to Run
+## How to Run
 
 Start services:
 
@@ -114,7 +76,7 @@ curl http://localhost:8080/health
 
 ---
 
-## 🔍 Example Request
+## Example Request
 
 Create a book:
 
