@@ -1,28 +1,38 @@
-version: "3.9"
-
 services:
   db:
     image: postgres:16
-    container_name: akdb
     environment:
-      POSTGRES_DB: akdb
-      POSTGRES_USER: akuser
-      POSTGRES_PASSWORD: akpass
+      POSTGRES_DB: ${DB_NAME:-akdb}
+      POSTGRES_USER: ${DB_USER:-akuser}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-akpass}
     ports:
       - "5432:5432"
     volumes:
       - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
 
   backend:
     build: ./backend
     ports:
       - "8080:8080"
-    env_file:
-      - .env
     depends_on:
-      - db
-    
-    restart: always
+      db:
+        condition: service_healthy
+    environment:
+      APP_NAME: ${APP_NAME:-ak-in-web}
+      APP_ENV: ${APP_ENV:-local}
+      APP_PORT: ${APP_PORT:-8080}
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_NAME: ${DB_NAME:-akdb}
+      DB_USER: ${DB_USER:-akuser}
+      DB_PASSWORD: ${DB_PASSWORD:-akpass}
+      DB_SSLMODE: ${DB_SSLMODE:-disable}
+    restart: unless-stopped
 
 volumes:
   pgdata:

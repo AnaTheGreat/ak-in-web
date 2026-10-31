@@ -1,90 +1,70 @@
 # AK In Web (Work in Progress)
 
-This project is a full-stack, personal portfolio, website built by using the following skills & tools:
+This is a full-stack personal website project intended to teach practical
+application delivery, DevOps, and later DevSecOps skills.
 
-- Go (backend)
-- React (frontend)
-- PostgreSQL (database)
-- Docker (containerization)
-- REST API architecture
+## Project goal
 
-It is currently under active development. The goal is not just to make it work, but to build a system with proper and clean backend structure, database design and DevOps practices rather than rushing features. Personal goal is preparation for DevOps/Backend roles.
+The public website will contain personal content in two sections:
 
----
+- Library: books and tags
+- Cinematheque: movies and tags
 
-## Project Goal
+The future admin area will allow the owner to manage that content. There is no
+public user registration planned for the first version.
 
-The application will support a personal website with two main data-driven sections:
+## Current backend features
 
-- Library (books + tags)
-- Cinematheque (movies + tags)
+- Health check: `GET /health`
+- Automatic database migrations on backend startup
+- PostgreSQL readiness checks in Docker
+- Book CRUD: `/api/library/books`
+- Movie CRUD: `/api/cinematheque/movies`
+- Basic input validation and JSON errors
+- AND filtering by existing tag names: `?tags=tag-one,tag-two`
 
-Each section is independent and will allow:
+Authentication, tag management, image uploads, and the frontend are later
+milestones.
 
-- Creating entries (books/movies)
-- Tagging entries
-- Filtering by tags
-- Managing content through an admin interface
+## Run locally
 
----
+Copy `.env.example` to `.env` if you want to customize local values, then run:
 
-## Architecture
+```bash
+docker compose up --build
+```
 
-Go to [ARCHITECTURE.MD](./docs) for details.
+The backend waits for PostgreSQL, applies pending files in `backend/migrations`,
+and listens on `http://localhost:8080`.
 
----
+If your Docker installation does not include the Compose plugin, install Docker
+Compose or use the equivalent individual `docker run` commands.
 
-## Current Features
+Verify the service:
 
-- Health check endpoint (`/health`)
-- List books (`GET /library/books`)
-- Create book (`POST /library/books`)
-- List movies (`GET /cinematheque/movies`)
-- PostgreSQL integration
-- Dockerized environment
-
----
-
-## Work in Progress
-
-The following features are currently being implemented:
-
-- Migrations
-- Tag system (many-to-many relationships)
-- Filtering by tags
-- Admin authentication
-- Update/Delete operations
-- Input validation
-- Better error handling
-
----
-
-## How to Run
-
-Start services:
-
-docker-compose up -d
-
-Run backend locally (optional):
-
-cd backend  
-go run ./cmd/api  
-
-Test health endpoint:
-
+```bash
 curl http://localhost:8080/health
+```
 
----
-
-## Example Request
+## API examples
 
 Create a book:
 
-curl -X POST http://localhost:8080/library/books \
+```bash
+curl -X POST http://localhost:8080/api/library/books \
   -H "Content-Type: application/json" \
-  -d '{
-    "title": "Test Book",
-    "author": "AK",
-    "year": 2024,
-    "rating": 8.5
-  }'
+  -d '{"title":"Dune","author":"Frank Herbert","year":1965,"rating":9.5}'
+```
+
+List books, optionally using AND tag filtering:
+
+```bash
+curl "http://localhost:8080/api/library/books?tags=favorite,science-fiction"
+```
+
+The same CRUD routes are available for movies under
+`/api/cinematheque/movies`.
+
+## Architecture
+
+See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).

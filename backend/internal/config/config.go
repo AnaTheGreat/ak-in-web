@@ -17,6 +17,7 @@ type Config struct {
 	DBName     string
 	DBUser     string
 	DBPassword string
+	DBSSLMode  string
 }
 
 func Load() *Config {
@@ -32,6 +33,7 @@ func Load() *Config {
 		DBName:     getEnv("DB_NAME", "akdb"),
 		DBUser:     getEnv("DB_USER", "akuser"),
 		DBPassword: getEnv("DB_PASSWORD", "akpass"),
+		DBSSLMode:  getEnv("DB_SSLMODE", "disable"),
 	}
 
 	log.Printf(
